@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_24_004214) do
+ActiveRecord::Schema.define(version: 2019_01_25_041524) do
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "me_id"
+    t.integer "you_id"
+    t.string "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id", "created_at"], name: "index_messages_on_room_id_and_created_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
