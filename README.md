@@ -1,1 +1,1 @@
-# [Rails5] devise, Action Cable を使ったチャットアプリ
+# [Rails5.2] devise, Action Cable を使ったチャットアプリ
