@@ -1,0 +1,4 @@
+ul
+    - @rooms.each do |room|
+        li= link_to "Room#{room.id}", "/room/#{room.id}"
+    li= link_to "New Room", room_new_path, method: :post

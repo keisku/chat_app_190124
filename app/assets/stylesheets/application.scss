@@ -78,3 +78,19 @@ nav {
         margin-right: 10px;
     }
 }
+
+#messages {
+    .message {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 30px;
+        border-radius: 10px;
+        border: 1px solid #F2F2F2;
+        font-size: 14px;
+        font-weight: bold;
+        margin: auto;
+        p {
+            margin: 0;
+        }
+    }
+}
