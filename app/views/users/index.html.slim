@@ -1,6 +1,5 @@
 h3 ユーザーリスト
 
 - @users.each do |user|
-
     - unless user.id == current_user.id
-        = link_to user.name, user
+        = link_to user.name, "user/#{user.id}"
