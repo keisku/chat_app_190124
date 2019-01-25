@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  get 'rooms/show'
   get 'users' => 'users#index'
   get 'user/:id' => 'users#show'
 
@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     delete 'current_user' => 'users/registrations#destroy'
     post 'current_user' => 'users/registrations#create'
   end
+
+  root to: 'home#index'
 end
