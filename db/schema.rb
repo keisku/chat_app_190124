@@ -10,16 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_041524) do
+ActiveRecord::Schema.define(version: 2019_01_25_050836) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.integer "me_id"
-    t.integer "you_id"
-    t.string "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id", "created_at"], name: "index_messages_on_room_id_and_created_at"
+    t.integer "user_id"
+    t.integer "room_id"
+    t.index ["created_at"], name: "index_messages_on_created_at"
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
