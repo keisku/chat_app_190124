@@ -19,7 +19,8 @@ html
             = link_to "新規登録", new_user_registration_path
             = link_to "ログイン", new_user_session_path
 
-    p.notice= notice
-    p.alert= alert
+    p.flash.notice.container= notice
+    p.flash.alert.container= alert
 
-    = yield
+    .container.mb-5
+      = yield
