@@ -4,6 +4,5 @@
             span.input-group-text @
         input.form-control type="text" data-behavior="room_speak" placeholder="メッセージを送信"
 
-    .messages data-room_id="#{@room.id}"
-        .messages_inner
+    #messages data-room_id="#{@room.id}"
             = render @messages

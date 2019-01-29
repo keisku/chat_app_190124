@@ -1,4 +1,4 @@
+h4= link_to "Create a new Room", room_new_path, method: :post, class: "btn btn-primary"
 ul
     - @rooms.each do |room|
         li= link_to "Room#{room.id}", "/room/#{room.id}"
-    li= link_to "New Room", room_new_path, method: :post

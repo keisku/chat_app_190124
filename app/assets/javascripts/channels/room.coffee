@@ -1,5 +1,5 @@
 document.addEventListener 'turbolinks:load', ->
-  App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('.messages').data('room_id') },
+  App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('#messages').data('room_id') },
     connected: ->
       # Called when the subscription is ready for use on the server
 
@@ -9,7 +9,7 @@ document.addEventListener 'turbolinks:load', ->
     received: (data) ->
       # メッセージをブロードキャストで受け取った時
       # id=messagesにdata['message']を表示させる
-      $('.messages_inner').append data['message']
+      $('#messages').append data['message']
 
     speak: (message)->
       # メッセージが送信された時

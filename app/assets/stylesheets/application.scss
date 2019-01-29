@@ -16,6 +16,30 @@
 
 @import 'bootstrap';
 
+@mixin mq($breakpoint: medium) {
+    @if $breakpoint == xs {
+      @media screen and (min-width: 320px) {
+        @content;
+      }
+    } @else if $breakpoint == sm {
+      @media screen and (min-width: 480px) {
+        @content;
+      }
+    } @else if $breakpoint == md {
+      @media screen and (min-width: 768px) {
+        @content;
+      }
+    } @else if $breakpoint == lg {
+      @media screen and (min-width: 1024px) {
+        @content;
+      }
+    } @else if $breakpoint == xl {
+      @media screen and (min-width: 1280px) {
+          @content;
+      }
+    }
+  }
+
 
 /** 全体 **/
 .flash {
@@ -78,53 +102,78 @@ nav {
         margin-right: 10px;
     }
 }
+
 .messages_cover {
-    padding: 0 200px
-}
-.messages {
-    .messages_inner {
+    @include mq(sm) {
+        padding: 0 5px;
+    }
+    @include mq(md) {
+        padding: 0 25px;
+    }
+    @include mq(lg) {
+        padding: 0 100px;
+    }
+    @include mq(xl) {
+        padding: 0 200px;
+    }
+    #messages {
         border: 1px solid #FAFAFA;
-        border-radius: 5px;
-        padding: 30px 50px;
-        background-color: #e2f4fd3a;
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    }
-    .message_right {
-        text-align: left;
-        margin: 0 0 0 auto;
-        justify-content: flex-end;
-    }
-    .message_left {
-        justify-content: left;
-    }
-    .message {
-        margin-bottom: 5px;
-        max-width: 45%;
-        display: flex;
-        flex-wrap: wrap;
-        .me_message {
-            background-color: white;
-        }
-        .you_message {
-            background-color: dodgerblue;
-            color: white;
-        }
-        span {
-            width: 100%;
-            font-size: 12px;
-            font-weight: bold;
-            padding-left: 15px;
-            margin-bottom: 3px;
-        }
-        p {
-            margin: 0;
-            display: inline-block;
-            padding: 10px 30px;
-            border-radius: 10px;
-            border: 1px solid #F2F2F2;
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-            font-size: 14px;
-            font-weight: bold;
-        }
+            border-radius: 5px;
+            background-color: #e2f4fd3a;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    
+            @include mq(xs) {
+                padding: 15px;
+            }
+            @include mq(sm) {
+                padding: 15px;
+            }
+            @include mq(md) {
+                padding: 15px;
+            }
+            @include mq(lg) {
+                padding: 15px 25px;
+            }
+            @include mq(xl) {
+                padding: 30px 50px;
+            }
+            .message_right {
+                text-align: left;
+                margin: 0 0 0 auto;
+                justify-content: flex-end;
+            }
+            .message_left {
+                justify-content: left;
+            }
+            .message {
+                margin-bottom: 5px;
+                max-width: 45%;
+                display: flex;
+                flex-wrap: wrap;
+                .me_message {
+                    background-color: white;
+                }
+                .you_message {
+                    background-color: dodgerblue;
+                    color: white;
+                }
+                span {
+                    width: 100%;
+                    font-size: 12px;
+                    font-weight: bold;
+                    padding-left: 15px;
+                    margin-bottom: 3px;
+                }
+                p {
+                    margin: 0;
+                    display: inline-block;
+                    padding: 10px 30px;
+                    border-radius: 10px;
+                    border: 1px solid #F2F2F2;
+                    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+            }
     }
 }
